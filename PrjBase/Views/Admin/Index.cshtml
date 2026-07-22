@@ -1,0 +1,8 @@
+@{
+    ViewData["Title"] = "Área Admin";
+}
+
+<h2>Área Administrativa</h2>
+<p>Esta página só é acessível para usuários com a role <strong>Admin</strong>, graças ao atributo:</p>
+<pre><code>[Authorize(Roles = "Admin")]</code></pre>
+<p>aplicado no <code>AdminController</code>.</p>

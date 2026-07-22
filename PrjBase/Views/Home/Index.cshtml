@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Início";
+}
+
+<h2>Bem-vindo, @User.Identity!.Name!</h2>
+<p>
+    Sua role atual é:
+    <span class="badge bg-primary">@User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</span>
+</p>
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="alert alert-info">
+        Você é Admin, então também pode acessar a <a asp-controller="Admin" asp-action="Index">Área Admin</a>.
+    </div>
+}
+else
+{
+    <div class="alert alert-secondary">
+        Você está logado como usuário comum. A Área Admin está bloqueada para sua role.
+    </div>
+}
